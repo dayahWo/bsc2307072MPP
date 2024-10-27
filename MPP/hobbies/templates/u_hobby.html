@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{text-align: center;
+        color: rgb(1, 1, 99);}
+        hr{border-width: 5px;
+        border-color: rgb(251, 251, 67);}
+        p{text-align: center;
+        font-size: 20px;}
+        body{
+            background-color: rgb(232, 166, 252);
+        }
+    </style>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+        </style>
+</head>
+<body>
+    {% load static %} <img src="{% static "1marakpmb-merah.png" %}" alt="home"  width="80%" height="150px"/>
+    <br><br>
+    <hr><hr>
+    <br><br><br>
+    <form action="" method="get">
+        <h3> Enter First number: </h3><br>
+        <input type="text" name="number1" placeholder="Enter First number"><br>
+        <h3> Enter Second number: </h3><br>
+        <input type="text" name="number2" placeholder="Enter Second number">
+        <input type="submit" value="Check">
+      </form>
+
+        {% if number1 > number2 %}
+            <h4>{{ number1 }} is greater than {{ number2 }}</h4>
+        {% elif number2 > number1 %}
+            <h4>{{ number1 }} is less than {{ number2 }}</h4>
+        {% else %}
+            <h4>{{ number1 }} is equal {{ number2 }}</h4>
+        {% endif %}
+
+    <h1>INFO STUDENT HOBBY</h1>
+    <br>
+    List of KPMB student hobbies
+<br><br>
+<table>
+        <tr>
+        <th>Hobby</th>
+        <th>Gender</th>
+    </tr>
+ </table>
+ <a href = "{% url 'index' %}">THIS IS LINK TO homepage / INDEX</a>
+</body>
+</html>

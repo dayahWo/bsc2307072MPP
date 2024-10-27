@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{text-align: center;
+        color: rgb(225, 225, 92);}
+        hr{border-width: 5px;
+        border-color: rgb(251, 251, 67);}
+        p{text-align: center;
+        font-size: 20px;}
+        body{
+            background-color: rgb(78, 194, 109);
+        }
+    </style>
+</head>
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    </style>
+<body>
+    {% load static %} <img src="{% static "1marakpmb-merah.png" %}" alt="home"  width="80%" height="120px"/>
+
+<p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <h3> Enter student id: </h3>
+        <input type="text" name="studentid" placeholder=""><br>
+        <h3> Enter student name: </h3>
+        <input type="text" name="studentname" placeholder=""><br>
+        <h3> Enter student email address: </h3>
+        <input type="text" name="studentemail" placeholder=""><br>
+        <br>
+        <h3> Enter student age: </h3>
+        <input type="text" name="studentage" placeholder=""><br>
+        <br>
+        <h3> Enter student mentor id: </h3>
+        <select name="selectmenid" id="selectmenid">
+                {% for n in mymentor %}
+                <option value ="{{ n.menid }}">{{ n.menname}} </option>
+                {% endfor %}
+            </option>
+         </select>
+        <br>
+        <input type="submit" value="SUBMIT">
+      </form>
+      <h2>--Table below is displaying objects from model/database</h2>
+    <br>
+    {{message}}
+      <table>
+        <tr>
+            <th>STUDENT ID</th>
+            <th>STUDENT NAME   </th>
+            <th>       STUDENT EMAIL</th>
+            <th>       STUDENT AGE</th>
+            <th>       STUDENT MENTOR</th>
+        </tr>
+        {% for x in stumentor %}
+        <tr>
+            
+            <td>{{x.stuid}}</td>
+            <td>{{x.stuname}}</td>
+            <td>{{x.stuemail}}</td>
+            <td>{{x.stuage}}</td>
+            <td>{{x.stumentor_id}}</td>
+
+            <td><a href="updatestudent/{{x.stuid}}">    UPDATE    </a></td>
+            <td><a href="deletestudent/{{x.stuid}}">    DELETE    </a></td>
+           
+        </tr>
+        {% endfor %}
+     
+    </table>
+    <a href = "{% url 'index' %}">THIS IS LINK TO homepage / INDEX</a><br>
+    <a href = "{% url 'newmentor' %}">Click to Add New Mentor</a><br>
+    <a href = "{% url 'searchpage' %}">Click to Search Mentor</a>
+</p>
+    
+</body>
+</html>

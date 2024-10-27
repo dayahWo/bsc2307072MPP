@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{text-align: center;
+        color: rgb(1, 1, 99);}
+        hr{border-width: 5px;
+        border-color: rgb(251, 251, 67);}
+        p{text-align: center;
+        font-size: 20px;}
+        body{
+            background-color: rgb(232, 166, 252);
+        }
+    </style>
+</head>
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    </style>
+<body>
+    {% load static %} <img src="{% static "1marakpmb-merah.png" %}" alt="home"  width="80%" height="120px"/>
+
+    <h2>--Table below is displaying objects from model/database</h2>
+    
+    <table>
+        <tr>
+            <th>MENTOR ID</th>
+            <th>MENTOR NAME   </th>
+            <th>       ROOM NO</th>
+        </tr>
+        {% for x in displaydata %}
+        <tr>
+            <td>{{x.menid}}</td>
+            <td>{{x.menname}}</td>
+            <td>{{x.menroomno}}</td>
+            <td><a href="update/{{x.menid}}">    UPDATE    </a></td>
+            <td><a href="viewdelete/{{x.menid}}">    DELETE    </a></td>
+            </tr>
+        {% endfor %}
+     
+    </table>
+    {{message}}
+        
+    <br><br><br>
+<p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <h3> Enter mentor id: </h3>
+        <input type="text" name="mentorid" placeholder=""><br>
+        <h3> Enter mentor name: </h3>
+        <input type="text" name="mentorname" placeholder=""><br>
+        <h3> Enter mentor room number: </h3>
+        <input type="text" name="mentorroomno" placeholder=""><br>
+        <br>
+        <input type="submit" value="SUBMIT">
+      </form>
+
+    <a href = "{% url 'index' %}">BACK TO HOMEPAGE</a><br>
+    <a href = "{% url 'newstudent' %}">Click to Add New Student</a><br>
+    <a href = "{% url 'searchpage' %}">Click to Search Mentor</a>
+</p>
+    
+</body>
+</html>

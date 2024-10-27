@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{text-align: center;
+        color: rgb(1, 1, 99);}
+        hr{border-width: 5px;
+        border-color: rgb(251, 251, 67);}
+        p{text-align: center;
+        font-size: 20px;}
+        body{
+            background-color: rgb(232, 166, 252);
+        }
+    </style>
+</head>
+<body>
+    {% load static %} <img src="{% static "1marakpmb-merah.png" %}" alt="home"  width="70%" height="120px"/>
+    <br><br>
+    
+
+    {% with firstname="DCS4" %}
+    <h2>Hello {{firstname}} 
+        --This is calling variable firstname from HTML file</h2>
+    {% endwith %}
+    <br>
+
+    <h2>Hello {{nickname}} --This is calling variable nickname from viewspy file</h2>
+
+    <hr><hr>
+    
+    <br>
+   <h1>KPMB MPP SURVEY UNIT</h1>
+<p>
+    <a href = "{% url 'newmentor' %}">Page Mentor</a><br>
+    <a href = "{% url 'newstudent' %}">Page Student</a><br>
+    <a href = "{% url 'searchpage' %}">Click to Search Mentor</a>
+
+</p>
+    
+</body>
+</html>

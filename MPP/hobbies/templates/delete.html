@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{text-align: center;
+        color: rgb(1, 1, 99);}
+        hr{border-width: 5px;
+        border-color: rgb(251, 251, 67);}
+        p{text-align: center;
+        font-size: 20px;}
+        body{
+            background-color: rgb(232, 166, 252);
+        }
+    </style>
+</head>
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    </style>
+<body>
+       
+    <br><br><br>
+<p>
+    <form action="deletedata/{{datatobedeleted.menid}}" method="delete">
+        {% csrf_token %}
+        <h3> Enter mentor id: </h3><br>
+        <input type="text" name="mentorid" value="{{datatobedeleted.menid}}" disabled="false"><br>
+        <h3> Enter mentor name: </h3><br>
+        <input type="text" name="mentorname" value="{{datatobedeleted.menname}}" disabled="false"><br>
+        <h3> Enter mentor room number: </h3><br>
+        <input type="text" name="mentorroomno" value="{{datatobedeleted.menroomno}}" disabled="false"><br>
+        <br>
+        <input type="submit" value="DELETE">
+      </form>
+
+      <a href = "{% url 'index' %}">THIS IS LINK TO homepage / INDEX</a><br>
+      <a href = "{% url 'newmentor' %}">Click to Add New Mentor</a><br>
+      <a href = "{% url 'newstudent' %}">Click to Add New Student</a><br>
+      <a href = "{% url 'searchpage' %}">Click to Search Mentor</a>
+</p>
+    
+</body>
+</html>
